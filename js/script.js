@@ -80,7 +80,7 @@ const playMusic = (track, pause = false) => {
 // displayAlbumns Function
 async function displayAlbums()
 {
-  let a=await fetch("/songs/");
+  let a=await fetch("./songs/");
   let response= await a.text();
   let div=document.createElement("div");
   div.innerHTML=response;
@@ -95,14 +95,14 @@ async function displayAlbums()
     if(e.href.includes("/songs") && !e.href.includes(".htaccess"))
     {
       let folder=e.href.split("/").slice(4)[0];
-      let a= await fetch(`/songs/${folder}/info.json`);
+      let a= await fetch(`./songs/${folder}/info.json`);
       let response=await a.json();
       console.log(response);
       cardContainer.innerHTML=cardContainer.innerHTML+ `<div data-folder="${folder}" class="cards radius2 ">
       <div class="playbutton">
           <img src="img/playbutton.svg" alt="">
       </div>
-      <img src="/songs/${folder}/cover.jpg" alt="">
+      <img src="./songs/${folder}/cover.jpg" alt="">
       <h2>${response.title}</h2>
       <p>${response.description}</p>
   </div>`;
@@ -113,7 +113,7 @@ async function displayAlbums()
   Array.from(document.getElementsByClassName("cards")).forEach((e) => {
     e.addEventListener("click", async (item) => {
       console.log(item, item.currentTarget.dataset);
-      songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+      songs = await getSongs(`./songs/${item.currentTarget.dataset.folder}`);
       playMusic(songs[0]);
     });
   });
@@ -121,7 +121,7 @@ async function displayAlbums()
 }
 
 async function main() {
- await getSongs("songs/ncs");
+ await getSongs("./songs/ncs");
   playMusic(songs[0], true);
 
 
