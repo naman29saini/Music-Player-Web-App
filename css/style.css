@@ -5,8 +5,13 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
+body{
+  background-color: black;
+  min-height: 100vh;
+}
 .body{
   background-color: black;
+  height: 100vh;
 }
 .container{
   background-color: black;
@@ -139,6 +144,12 @@
   /* width: 75px; */
   color: white;
 }
+.signup a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
 .login {
   background-color: white;
   border-radius: 25px;
@@ -151,6 +162,12 @@
 }
 .login:hover {
   font-size: 14px;
+}
+.login a{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
 }
 .spotifyPlaylist {
   padding: 15px;
