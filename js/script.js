@@ -217,6 +217,10 @@ async function main() {
         .getElementsByTagName("input")[0].value=40;
       }
     })
+
+    setTimeout(()=>{
+      window.location.replace("./login.html");
+    },5000)
   
 }
 main();
